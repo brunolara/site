@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bruno Lara</title>
+    <meta name="description" content="Resume and CV of Bruno Lara.">
+    <script>
+      (function () {
+        var languages = [];
+
+        if (Array.isArray(navigator.languages)) {
+          languages = navigator.languages.slice();
+        }
+
+        if (navigator.language) {
+          languages.push(navigator.language);
+        }
+
+        var normalized = languages
+          .filter(Boolean)
+          .map(function (language) {
+            return String(language).toLowerCase();
+          });
+
+        var usePortuguese = normalized.some(function (language) {
+          return language === 'pt-br' || language.indexOf('pt-') === 0 || language === 'pt';
+        });
+
+        window.location.replace(usePortuguese ? '/pt-br.html' : '/en.html');
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Redirecting...</p>
+    <p><a href="/pt-br.html">Português</a></p>
+    <p><a href="/en.html">English</a></p>
+  </body>
+</html>
