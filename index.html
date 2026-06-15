@@ -21,6 +21,7 @@
     <link rel="canonical" href="https://brunodelara.dev/">
     <link rel="alternate" hreflang="pt-BR" href="https://brunodelara.dev/pt-br.html">
     <link rel="alternate" hreflang="en" href="https://brunodelara.dev/en.html">
+    <link rel="alternate" hreflang="es-PY" href="https://brunodelara.dev/es-py.html">
     <link rel="alternate" hreflang="x-default" href="https://brunodelara.dev/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Bruno Lara | Resume, CV, and Technical Leadership Profile">
@@ -68,7 +69,12 @@
           return language === 'pt-br' || language.indexOf('pt-') === 0 || language === 'pt';
         });
 
-        window.location.replace(usePortuguese ? '/pt-br.html' : '/en.html');
+        var useSpanish = normalized.some(function (language) {
+          return language.indexOf('es-') === 0 || language === 'es';
+        });
+
+        var target = usePortuguese ? '/pt-br.html' : useSpanish ? '/es-py.html' : '/en.html';
+        window.location.replace(target);
       })();
     </script>
   </head>
@@ -77,6 +83,7 @@
     <p>Choose your language to view Bruno Lara's resume and professional profile.</p>
     <p><a href="/pt-br.html" hreflang="pt-BR" lang="pt-BR">Português</a></p>
     <p><a href="/en.html" hreflang="en" lang="en">English</a></p>
+    <p><a href="/es-py.html" hreflang="es-PY" lang="es-PY">Español</a></p>
     <noscript>
       <p>JavaScript is disabled. Use one of the links above to open the correct language version.</p>
     </noscript>
